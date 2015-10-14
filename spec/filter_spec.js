@@ -21,7 +21,10 @@ var fixtures = {
       'fudge': 'noun',
       'buck': 'noun',
       'bucking': 'verb',
-      'crappy': 'noun'
+      'crappy': 'noun',
+      '$hoot': 'noun',
+      'a$$': 'body-part',
+      '$!^.()[]': 'noun'
     }
   }
 };
@@ -51,6 +54,27 @@ describe ("clean", function() {
   it ("should work with lots of bad words", function() {
     var badString = "butt butt butt butt butt";
     var expectedString = "elbow elbow elbow elbow elbow";
+    var filteredString = filter.clean(badString);
+    assert.equal(filteredString, expectedString);
+  });
+
+  it ("should work with bad words that have special regex characters", function() {
+    var badString = "$hoot";
+    var expectedString = "chicken";
+    var filteredString = filter.clean(badString);
+    assert.equal(filteredString, expectedString);
+  });
+
+  it ("should thwart an attempted smart-a$$", function() {
+    var badString = "a$$";
+    var expectedString = "elbow";
+    var filteredString = filter.clean(badString);
+    assert.equal(filteredString, expectedString);
+  });
+
+  it ("should work on other characters", function() {
+    var badString = "$!^.()[]";
+    var expectedString = "chicken";
     var filteredString = filter.clean(badString);
     assert.equal(filteredString, expectedString);
   });
