@@ -1,7 +1,7 @@
 {
   "name": "profanity-filter",
   "description": "A node.js utility for masking words or phrases in strings that aren't allowed, and replacing them with silly things.",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "homepage": "https://github.com/jeffcodenoise/profanity-filter",
   "author": {
     "name": "Jeff Nehlsen",
