@@ -24,7 +24,8 @@ var fixtures = {
       'crappy': 'noun',
       'shoot': 'noun',
       'ass': 'body-part',
-      '$@!^.()[]-': 'noun'
+      '$@!^.()[]-': 'noun',
+      'leet': 'adjective'
     }
   }
 };
@@ -75,6 +76,13 @@ describe ("clean", function() {
   it ("should work on other characters", function() {
     var badString = "$@!^.()[]-";
     var expectedString = "chicken";
+    var filteredString = filter.clean(badString);
+    assert.equal(filteredString, expectedString);
+  });
+
+  it ("should track down 133tness", function() {
+    var badString = "This is pretty 1337.";
+    var expectedString = "This is pretty silly.";
     var filteredString = filter.clean(badString);
     assert.equal(filteredString, expectedString);
   });
