@@ -29,4 +29,11 @@ describe ("clean", function() {
     var filteredString = filter.clean(fixtures.dirtyString);
     assert.equal(filteredString, fixtures.cleanString);
   });
+
+  it ("should work with lots of bad words", function() {
+    var badString = "butt butt butt butt butt";
+    var expectedString = "elbow elbow elbow elbow elbow";
+    var filteredString = filter.clean(badString);
+    assert.equal(filteredString, expectedString);
+  });
 });
