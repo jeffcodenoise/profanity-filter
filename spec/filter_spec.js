@@ -22,9 +22,9 @@ var fixtures = {
       'buck': 'noun',
       'bucking': 'verb',
       'crappy': 'noun',
-      '$hoot': 'noun',
-      'a$$': 'body-part',
-      '$!^.()[]': 'noun'
+      'shoot': 'noun',
+      'ass': 'body-part',
+      '$@!^.()[]-': 'noun'
     }
   }
 };
@@ -66,14 +66,14 @@ describe ("clean", function() {
   });
 
   it ("should thwart an attempted smart-a$$", function() {
-    var badString = "a$$";
+    var badString = "4$$";
     var expectedString = "elbow";
     var filteredString = filter.clean(badString);
     assert.equal(filteredString, expectedString);
   });
 
   it ("should work on other characters", function() {
-    var badString = "$!^.()[]";
+    var badString = "$@!^.()[]-";
     var expectedString = "chicken";
     var filteredString = filter.clean(badString);
     assert.equal(filteredString, expectedString);
