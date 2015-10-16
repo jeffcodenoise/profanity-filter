@@ -86,4 +86,10 @@ describe ("clean", function() {
     var filteredString = filter.clean(badString);
     assert.equal(filteredString, expectedString);
   });
+
+  it ("should not match a partial word", function() {
+    var str = "This is badbutt";
+    var filteredString = filter.clean(str);
+    expect(filteredString).toEqual(str);
+  });
 });
